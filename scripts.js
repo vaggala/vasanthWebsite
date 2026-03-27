@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         let isAnimating = false;
 
-        // Initialize height based on current open state
+        // initialize height based on current open state
         if (details.open) {
             content.style.height = "auto";
         } else {

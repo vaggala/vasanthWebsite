@@ -11,7 +11,7 @@
         radiusMin: 0.8,
         radiusMax: 1.8,
         linkDist: 0,
-        mouseLinkDist: 150,
+        mouseLinkDist: 0,
         lineAlpha: 0.35,
         dotAlpha: 0.9,
         useDevicePixelRatio: true
