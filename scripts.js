@@ -137,4 +137,41 @@ document.addEventListener("DOMContentLoaded", () => {
         revealObserver.observe(el);
     });
 
+    /* ============================
+       4) Project focused view
+    ============================ */
+
+    const modal = document.getElementById("project-modal");
+
+    if (modal) {
+        const modalTitle = modal.querySelector(".modal-title");
+        const modalBody = modal.querySelector(".modal-body");
+        let lastTrigger = null;
+
+        document.querySelectorAll(".project-card").forEach((card) => {
+            const trigger = card.querySelector(".project-open");
+            const details = card.querySelector(".project-details");
+            if (!trigger || !details) return;
+
+            trigger.addEventListener("click", () => {
+                lastTrigger = trigger;
+                modalTitle.textContent = trigger.textContent.trim();
+                modalBody.innerHTML = details.innerHTML;
+                modalBody.scrollTop = 0;
+                modal.showModal();
+            });
+        });
+
+        modal.querySelector(".modal-close").addEventListener("click", () => modal.close());
+
+        // close when clicking the dimmed backdrop
+        modal.addEventListener("click", (e) => {
+            if (e.target === modal) modal.close();
+        });
+
+        modal.addEventListener("close", () => {
+            if (lastTrigger) lastTrigger.focus();
+        });
+    }
+
 });
