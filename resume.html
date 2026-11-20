@@ -3,43 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resume | Vasanth Aggala</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Résumé | Vasanth Aggala</title>
+    <meta name="description" content="Résumé of Vasanth Aggala, Computer Engineering at Georgia Tech.">
+    <meta name="color-scheme" content="light dark">
+    <script>
+        // Apply a saved theme before the page draws, so it never flashes the wrong colors.
+        try {
+            const saved = localStorage.getItem("theme");
+            if (saved === "light" || saved === "dark") document.documentElement.dataset.theme = saved;
+        } catch (e) {}
+    </script>
     <link rel="icon" type="image/webp" href="assets/webLogo.webp">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <canvas id="constellation"></canvas>
-    <nav class="navbar">
-        <div class="container navbar-inner">
-            <a href="index.html#about" class="logo">
-                <img src="assets/va-logo.webp" alt="personal logo">
-            </a>
-
-            <ul class="nav-links">
-                <li><a href="/#about">About Me</a></li>
-                <li><a href="/#work">Work</a></li>
-                <li><a href="/#projects">Projects</a></li>
-                <li><a href="resume.html">Resume</a></li>
-            </ul>
+    <header class="header">
+        <div class="wrap header-inner">
+            <a class="brand" href="/">Vasanth Aggala</a>
+            <nav class="nav" aria-label="Sections">
+                <a href="/#about">About</a>
+                <a href="/#experience">Experience</a>
+                <a href="/#school">School</a>
+                <a href="/#projects">Projects</a>
+                <a href="/#contact">Contact</a>
+            </nav>
+            <button class="theme-toggle" type="button" aria-label="Switch to dark mode" title="Switch light / dark">
+                <i class="fa-solid fa-moon icon-moon" aria-hidden="true"></i>
+                <i class="fa-solid fa-sun icon-sun" aria-hidden="true"></i>
+            </button>
         </div>
-            
-    </nav>
+    </header>
 
-    <section class="section">
-        <div class="container">
-            <h2>Resume</h2>
-            <p>
-                Here is my most recent resume as of November 2026.
-            </p>
-            <a href="assets/vasanth_aggala_resume.pdf" download class="resume-download">Download PDF</a>
-            <iframe 
-                src="assets/vasanth_aggala_resume.pdf"
-                width="100%"
-                height="900px"
-                style="border: none; border-radius: 12px;">
-            </iframe>
+    <main class="wrap section">
+        <div class="resume-head">
+            <h1>Résumé</h1>
+            <div class="links">
+                <a href="/"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Back</a>
+                <a class="primary" href="assets/vasanth_aggala_resume.pdf" download><i class="fa-solid fa-download" aria-hidden="true"></i> Download PDF</a>
+            </div>
         </div>
-    </section>
-    <script src="constellation.js"></script>
+        <iframe class="resume-frame" src="assets/vasanth_aggala_resume.pdf" title="Vasanth Aggala résumé (PDF)"></iframe>
+    </main>
+
+    <script src="scripts.js"></script>
 </body>
 </html>

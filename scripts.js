@@ -1,177 +1,47 @@
-document.addEventListener("DOMContentLoaded", () => {
+// Light/dark toggle. Follows the device setting until the visitor picks one,
+// then remembers that choice (the <head> script re-applies it on load).
+(() => {
+    const button = document.querySelector(".theme-toggle");
+    if (!button) return;
 
-    /*
-    0. smooth dropdown
-    
-    */
+    const root = document.documentElement;
+    const deviceDark = window.matchMedia("(prefers-color-scheme: dark)");
+    const current = () => root.dataset.theme || (deviceDark.matches ? "dark" : "light");
 
-    const workDetails = Array.from(document.querySelectorAll("#work details.work-card"));
+    const updateLabel = () => {
+        button.setAttribute("aria-label", current() === "dark" ? "Switch to light mode" : "Switch to dark mode");
+    };
 
-    workDetails.forEach((details) => {
-        const summary = details.querySelector("summary");
-        const content = details.querySelector(".work-details");
-
-        if (!summary || !content) return;
-
-        let isAnimating = false;
-
-        // initialize height based on current open state
-        if (details.open) {
-            content.style.height = "auto";
-        } else {
-            content.style.height = "0px";
-        }
-
-        summary.addEventListener("click", (e) => {
-            e.preventDefault();
-
-            if (isAnimating) return;
-
-            const isOpen = details.open;
-
-            if (!isOpen) {
-                // for opening: content is hidden unless details.open = true
-                details.open = true;
-
-                // start from 0, animate to scrollHeight
-                content.style.height = "0px";
-                content.getBoundingClientRect(); // force reflow
-
-                const endHeight = content.scrollHeight;
-
-                isAnimating = true;
-                content.style.transition = "height 300ms cubic-bezier(0.2, 0.8, 0.2, 1)";
-                content.style.height = `${endHeight}px`;
-
-                const onEnd = (ev) => {
-                    if (ev.propertyName !== "height") return;
-                    content.removeEventListener("transitionend", onEnd);
-                    content.style.transition = "";
-                    content.style.height = "auto";
-                    isAnimating = false;
-                };
-
-                content.addEventListener("transitionend", onEnd);
-            } else {
-                // for closing: set a fixed start height, animate to 0, then close details
-                const startHeight = content.scrollHeight;
-
-                content.style.height = `${startHeight}px`;
-                content.getBoundingClientRect(); // force reflow
-
-                isAnimating = true;
-                content.style.transition = "height 220ms ease";
-                content.style.height = "0px";
-
-                const onEnd = (ev) => {
-                    if (ev.propertyName !== "height") return;
-                    content.removeEventListener("transitionend", onEnd);
-                    content.style.transition = "";
-                    details.open = false; // hide after animation finishes
-                    isAnimating = false;
-                };
-
-                content.addEventListener("transitionend", onEnd);
-            }
-        });
+    button.addEventListener("click", () => {
+        const next = current() === "dark" ? "light" : "dark";
+        root.dataset.theme = next;
+        try { localStorage.setItem("theme", next); } catch (e) {}
+        updateLabel();
     });
 
+    deviceDark.addEventListener("change", updateLabel);
+    updateLabel();
+})();
 
-
-    /* ============================
-       1) Work Accordion Behavior
-       Only allow one <details> open at a time
-    ============================ */
-
-    const workCards = Array.from(document.querySelectorAll("#work details.work-card"));
-
-    workCards.forEach((card) => {
-        const summary = card.querySelector("summary");
-        if (!summary) return;
-
-        summary.addEventListener("click", () => {
-            // After this one opens, close the rest (with animation)
-            setTimeout(() => {
-                if (!card.open) return;
-                workCards.forEach((other) => {
-                    if (other !== card && other.open) {
-                        const otherSummary = other.querySelector("summary");
-                        if (otherSummary) otherSummary.click();
-                    }
-                });
-            }, 0);
-        });
-    });
-
-
-
-
-
-    /* ============================
-       3) Reveal on Scroll Animations
-    ============================ */
-
-    const revealElements = document.querySelectorAll(
-        ".about-card, .work-card, h2, .about-text p"
+// Highlight the nav link for whichever section is in the middle of the screen.
+(() => {
+    const links = new Map(
+        Array.from(document.querySelectorAll(".nav a")).map((a) => [a.getAttribute("href").slice(1), a])
     );
+    if (!links.size || !("IntersectionObserver" in window)) return;
 
-    revealElements.forEach((el) => {
-        el.classList.add("reveal");
-    });
-
-    const revealObserver = new IntersectionObserver(
+    const observer = new IntersectionObserver(
         (entries) => {
             entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add("reveal-visible");
-                    revealObserver.unobserve(entry.target);
-                }
+                if (!entry.isIntersecting) return;
+                links.forEach((a, id) => a.classList.toggle("active", id === entry.target.id));
             });
         },
-        {
-            threshold: 0.15,
-        }
+        { rootMargin: "-45% 0px -50% 0px" }
     );
 
-    revealElements.forEach((el) => {
-        revealObserver.observe(el);
+    links.forEach((_, id) => {
+        const section = document.getElementById(id);
+        if (section) observer.observe(section);
     });
-
-    /* ============================
-       4) Project focused view
-    ============================ */
-
-    const modal = document.getElementById("project-modal");
-
-    if (modal) {
-        const modalTitle = modal.querySelector(".modal-title");
-        const modalBody = modal.querySelector(".modal-body");
-        let lastTrigger = null;
-
-        document.querySelectorAll(".project-card").forEach((card) => {
-            const trigger = card.querySelector(".project-open");
-            const details = card.querySelector(".project-details");
-            if (!trigger || !details) return;
-
-            trigger.addEventListener("click", () => {
-                lastTrigger = trigger;
-                modalTitle.textContent = trigger.textContent.trim();
-                modalBody.innerHTML = details.innerHTML;
-                modalBody.scrollTop = 0;
-                modal.showModal();
-            });
-        });
-
-        modal.querySelector(".modal-close").addEventListener("click", () => modal.close());
-
-        // close when clicking the dimmed backdrop
-        modal.addEventListener("click", (e) => {
-            if (e.target === modal) modal.close();
-        });
-
-        modal.addEventListener("close", () => {
-            if (lastTrigger) lastTrigger.focus();
-        });
-    }
-
-});
+})();

@@ -3,559 +3,312 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vasanth Aggala</title>
+    <meta name="description" content="Vasanth Aggala, Computer Engineering at Georgia Tech (Class of 2028). Software engineering intern at Fiserv and Delta, seeking Summer 2027 SWE internships.">
+    <meta name="color-scheme" content="light dark">
+    <script>
+        // Apply a saved theme before the page draws, so it never flashes the wrong colors.
+        try {
+            const saved = localStorage.getItem("theme");
+            if (saved === "light" || saved === "dark") document.documentElement.dataset.theme = saved;
+        } catch (e) {}
+    </script>
+    <meta property="og:title" content="Vasanth Aggala">
+    <meta property="og:description" content="CmpE @ Georgia Tech · SWE intern at Fiserv and Delta · Seeking Summer 2027 internships.">
     <meta property="og:image" content="https://vasanthaggala.com/assets/website_project_pic.png">
-    <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/webp" href="assets/webLogo.webp">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <title>Vasanth Aggala</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <canvas id="constellation"></canvas>
-    <nav class="navbar">
-        <div class="container navbar-inner">
-            <a href="#about" class="logo">
-                <img src="assets/va-logo.webp" alt="personal logo">
-            </a>
 
-            <ul class="nav-links">
-                <li><a href="#about">About Me</a></li>
-                <li><a href="#work">Work</a></li>
-                <li><a href="#projects">Projects</a>
-                <li><a href="resume.html">Resume</a></li>
-            </ul>
+    <header class="header">
+        <div class="wrap header-inner">
+            <a class="brand" href="#about">Vasanth Aggala</a>
+            <nav class="nav" aria-label="Sections">
+                <a href="#about">About</a>
+                <a href="#experience">Experience</a>
+                <a href="#school">School</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <button class="theme-toggle" type="button" aria-label="Switch to dark mode" title="Switch light / dark">
+                <i class="fa-solid fa-moon icon-moon" aria-hidden="true"></i>
+                <i class="fa-solid fa-sun icon-sun" aria-hidden="true"></i>
+            </button>
         </div>
-    </nav>
+    </header>
 
-    <!-- <section id="about" class="section">
-    <h2>About Me</h2>
-    <p>note to self look into making this a hbox and adding a picture of myself to the right</p>
-    <p>Hi! I am a second-year at Georgia Tech studying Computer Engineering with a focus on system architecture and software design.</p>
-    <p>I'm interested in software development, research, and data-driven engineering. I like working on projects where I can build and improve concepts that help people.</p>
-    <p>In my free time, I like to cook new dishes, work on my photography skills (rip my sony cybershot), and challenge myself by learning new things and building projects.</p>
-    <p>feel free to reach out to: <a href="mailto:vasanthaggala@gatech.edu">vasanthaggala [at] gatech [dot] edu</a>, I'm always happy to chat!</p>
-    </section> -->
+    <main class="wrap">
 
-    <section id="about" class="section">
-        
-        <div class="container">
-
-            <div class="hero-section">
-                <div class="hero-left">
-                    <h1 class="hero-title">Vasanth Aggala</h1>
-
-                    <p class="hero-subtitle">
-                        Computer Engineering @ Georgia Tech
-                    </p>
-
-                    <p class="hero-description">
-                        Interested in software development, research, and data-driven engineering.
-                        Building systems that solve real-world problems.
-                    </p>
-
-                    <div class="hero-buttons">
-                        <a href="resume.html" class="hero-btn primary">View Resume</a>
-                        <a href="#work" class="hero-btn">Work Experience</a>
-                        <a href="#projects" class="hero-btn">Projects</a>
-                    </div>
-                </div>
-
-                <div class="hero-right">
-                    <div class="about-card">
-                        <img src="assets/vasanth_profile.jpg" alt="Vasanth profile photo" class="about-photo">
-
-                        <div class="about-links">
-                            <a href="https://github.com/vaggala" target="_blank" class="about-icon" aria-label="GitHub">
-                                <i class="fa-brands fa-github"></i>
-                            </a>
-
-                            <a href="https://linkedin.com/in/vasanth-aggala" target="_blank" class="about-icon" aria-label="LinkedIn">
-                                <i class="fa-brands fa-linkedin"></i>
-                            </a>
-
-                            <a href="mailto:vasanthaggala@gatech.edu" class="about-icon" aria-label="Email">
-                                <i class="fa-solid fa-envelope"></i>
-                            </a>
-
-                            <a href="#projects" class="about-icon" aria-label="Projects">
-                                <i class="fa-solid fa-code"></i>
-                            </a>
-
-
-                            <!-- <a href="resume.html" class="about-icon" aria-label="Resume">
-                                <i class="fa-solid fa-file"></i>
-                            </a> -->
-                        </div>
-                    </div>
+        <section id="about" class="section about">
+            <div class="intro">
+                <img class="avatar" src="assets/headshot.jpg" alt="Vasanth Aggala" width="96" height="96">
+                <div>
+                    <h1>Vasanth Aggala</h1>
+                    <p class="muted">Computer Engineering @ Georgia Tech · Class of 2028</p>
                 </div>
             </div>
 
+            <p class="status">Seeking Summer 2027 software engineering internships</p>
 
-            <!-- <div class="about-layout">
-            
-                <div class="about-text">
-                <p>Hi! I am a junior at Georgia Tech studying Computer Engineering with a focus on system architecture and software design.</p>
-                <p>I'm interested in software development, research, and data-driven engineering. I like working on projects where I can build and improve concepts that help people.</p>
-                <p>In my free time, I like to cook new dishes, work on my photography skills (rip my sony cybershot), and challenge myself by learning new things and building projects.</p>
-                <p>I'm always happy to chat! Feel free to reach out to: <a class = "email-link" href="mailto:vasanthaggala@gatech.edu">vasanthaggala [at] gatech [dot] edu</a></p>
-                </div>
+            <p>
+                I'm a software engineer who has interned at <strong>Fiserv</strong> and <strong>Delta Air Lines</strong>.
+                I build backend services, data pipelines, and AI tools. Most recently, I built a RAG assistant
+                that 300+ developers and PMs use to query internal APIs, cutting LLM token costs by 70%.
+            </p>
+            <p>
+                At Georgia Tech I concentrate in Distributed Systems &amp; Software Design and Systems &amp; Architecture.
+                Outside of class I lead the social team for an iOS Club app, cook new dishes, and play Breath of the Wild or Pokémon.
+            </p>
 
-                <div class="about-card">
-                    <img src="assets/vasanth-profile.webp" alt="Vasanth profile photo" class="about-photo">
-                    <div class="about-links">
-                        <a href="https://github.com/vaggala" target="_blank" class="about-icon">
-                            <i class="fa-brands fa-github"></i>
-                        </a>
-
-                        <a href="https://linkedin.com/in/vasanth-aggala" target="_blank" class="about-icon">
-                            <i class="fa-brands fa-linkedin"></i>
-                        </a>
-
-                        <a href="mailto:vasanthaggala@gatech.edu" class="about-icon">
-                            <i class="fa-solid fa-envelope"></i>
-                        </a>
-                    </div>
-
-                </div>
-            
-            </div> -->
-            <div class="about-section">
-                <h2>Who Am I?</h2>
-
-                <p>
-                    I'm a Computer Engineering student at Georgia Tech concentrating in Distributed Systems & Software Design and Systems & Architecture.
-                    I enjoy working at the intersection of engineering + data, where I can build systems that solve real problems.
-                </p>
-
-                <p>
-                    In my free time, I like to cook new dishes, play Breath of the Wild or Pokemon, and challenge myself by learning new things & building projects.
-                </p>
-
-                <p>
-                    I'm always happy to chat! Whether you're interested in collaborating, or just want to talk, reach out at
-                    <a class="email-link" href="mailto:vasanthaggala@gatech.edu">vasanthaggala@gatech.edu</a>!
-                </p>
-            </div>
-
-        </div>
-    </section>
-
-
-    <section id="work" class="section">
-        <div class="container">
-        <h2>Work Experience</h2>
-
-        <details class="work-card">
-            <summary class="work-summary">
-            <img class="company-logo" src="assets/fiservLogo.jpeg" alt="Fiserv logo">
-
-            <div class="work-info">
-                <h3>Software Engineering Intern</h3>
-                <p class="company-name">Fiserv, Global eCommerce</p>
-            </div>
-
-            <div class="work-date">
-                <p>Jun 2026 - Aug 2026</p>
-                <p class="work-location">Alpharetta, GA</p>
-            </div>
-            </summary>
-
-            <div class="work-details">
-            <ul>
-                <li>Engineered an AI assistant (Java, Spring Boot, TypeScript) letting 300+ devs and PMs query internal APIs in plain English</li>
-                <li>Architected a RAG pipeline routing queries to docs, code search, or live DB data, cutting LLM token costs by 70%</li>
-                <li>Configured Azure API Management keys for 4 roles (devs, PMs, solutions engineers, testers), tailoring replies to each role</li>
-            </ul>
-            </div>
-        </details>
-
-        <details class="work-card">
-            <summary class="work-summary">
-            <img class="company-logo" src="assets/vipLogo.webp" alt="GT VIP logo">
-
-            <div class="work-info">
-                <h3>Undergraduate Research Assistant</h3>
-                <p class="company-name">Medford Group, Computational Research</p>
-            </div>
-
-            <div class="work-date">
-                <p>Jan 2026 - May 2026</p>
-                <p class="work-location">Atlanta, GA</p>
-            </div>
-            </summary>
-
-            <div class="work-details">
-            <ul>
-                <li>Created density functional theory (DFT) workflows with Python, Bash, and SPARC, cutting simulation setup time by 20%</li>
-                <li>Automated 500+ DFT simulations with Atomic Simulation Environment on Linux HPC clusters, generating ML features</li>
-                <li>Benchmarked LDA vs. GGA functionals on Pt(111) and Cu(111), reproducing published CO adsorption site preferences</li>
-            </ul>
-            </div>
-        </details>
-
-        <details class="work-card">
-            <summary class="work-summary">
-            <img class="company-logo" src="assets/delta_air_lines_logo.webp" alt="Delta Air Lines logo">
-
-            <div class="work-info">
-                <h3>Software Engineering Intern</h3>
-                <p class="company-name">Delta Air Lines, Flight Safety</p>
-            </div>
-
-            <div class="work-date">
-                <p>Aug 2025 - Dec 2025</p>
-                <p class="work-location">Atlanta, GA</p>
-            </div>
-            </summary>
-
-            <div class="work-details">
-            <ul>
-                <li>Trained ML models in Python on 200K+ flight records to flag flight risk anomalies, improving detection accuracy by 23%</li>
-                <li>Optimized backend SQL/Python ETL pipelines behind Tableau dashboards, cutting query load times by 87% (25 to 3.3 min)</li>
-                <li>Integrated the FlightRadar24 API with SQL/Python analysis of 15+ KPIs, helping 4 flight ops teams find delay bottlenecks</li>
-            </ul>
-            </div>
-        </details>
-
-        <details class="work-card">
-            <summary class="work-summary">
-            <img class="company-logo" src="assets/georgia_institute_of_technology_logo.webp" alt="Georgia Tech logo">
-
-            <div class="work-info">
-                <h3>Undergraduate Research Assistant</h3>
-                <p class="company-name">Bhamla Lab, qByte Subteam</p>
-            </div>
-
-            <div class="work-date">
-                <p>Mar 2025 - Aug 2025</p>
-                <p class="work-location">Atlanta, GA</p>
-            </div>
-            </summary>
-
-            <div class="work-details">
-            <ul>
-                <li>Wrote embedded software for a qLAMP diagnostic device at 90% lower cost than commercial units ($50 vs. $450+)</li>
-                <li>Engineered C++ temperature control on ESP32, reducing thermal overshoot by 80% and improving reaction stability</li>
-                <li>Created Python/React apps baseline-normalizing 300K+ readings/run to report time-to-threshold and peak fluorescence</li>
-            </ul>
-            </div>
-        </details>
-        </div>
-    </section>
-
-
-        <section id="projects" class="section">
-            <div class="container">
-                <h2>Projects</h2>
-                <p class="section-hint">Click a project to see more.</p>
-
-                <div class="projects-grid">
-
-                    <article class="project-card">
-                        <div class="project-top project-top-icon" aria-hidden="true"><i class="fa-solid fa-shirt"></i></div>
-                        <div class="project-body">
-                            <div class="project-header">
-                                <h3 class="project-title"><button type="button" class="project-open" aria-haspopup="dialog">Dressed</button></h3>
-                                <i class="fa-solid fa-arrow-up-right-from-square project-arrow" aria-hidden="true"></i>
-                            </div>
-                            <p class="project-desc">A 25+ developer GT iOS Club app that digitizes your closet and lets you share outfits. I lead the social team.</p>
-                            <div class="project-tags"><span class="tag">Swift</span><span class="tag">SwiftUI</span><span class="tag">Cloud Firestore</span><span class="tag tag-more">+2</span></div>
-                        </div>
-
-                        <div class="project-details" hidden>
-                            
-                            <div class="project-tags"><span class="tag">Swift</span><span class="tag">SwiftUI</span><span class="tag">Cloud Firestore</span><span class="tag">MVVM</span><span class="tag">Vision / Core ML</span></div>
-                            <p class="modal-dates">Oct 2026 - Present</p>
-                            <p>Dressed is a GT iOS Club app that digitizes your closet with Vision and Core ML and lets you share outfits with friends. I lead the social team, which builds everything around posting, following, and discovering outfits.</p>
-                            <p class="modal-subhead">Key features</p>
-                            <ul>
-                                <li><strong>Social team lead:</strong> Coordinating the social features of a 25+ developer app</li>
-                                <li><strong>Post detail view model:</strong> MVVM with cancellable loads and error states, exposing only public data to views</li>
-                                <li><strong>Recommendations:</strong> Content-based and collaborative ranking on closets, likes, saves, and follows</li>
-                                <li><strong>Performance:</strong> Ranks 500 posts in under 100 ms</li>
-                            </ul>
-                            <div class="modal-links"></div>
-                        </div>
-                    </article>
-
-                    <article class="project-card">
-                        <div class="project-top project-top-icon" aria-hidden="true"><i class="fa-solid fa-briefcase"></i></div>
-                        <div class="project-body">
-                            <div class="project-header">
-                                <h3 class="project-title"><button type="button" class="project-open" aria-haspopup="dialog">Job Application Platform</button></h3>
-                                <i class="fa-solid fa-arrow-up-right-from-square project-arrow" aria-hidden="true"></i>
-                            </div>
-                            <p class="project-desc">A Django job platform used by 300 students to match applicants with recruiters.</p>
-                            <div class="project-tags"><span class="tag">Python</span><span class="tag">Django</span><span class="tag">JavaScript</span><span class="tag">PythonAnywhere</span></div>
-                        </div>
-
-                        <div class="project-details" hidden>
-                            
-                            <div class="project-tags"><span class="tag">Python</span><span class="tag">Django</span><span class="tag">JavaScript</span><span class="tag">PythonAnywhere</span></div>
-                            <p class="modal-dates">Aug 2026 - Present</p>
-                            <p>A full-stack job platform that connects student job seekers with recruiters, deployed on PythonAnywhere and used by 300 students.</p>
-                            <p class="modal-subhead">Key features</p>
-                            <ul>
-                                <li><strong>One-click apply:</strong> Apply with a tailored note in one step</li>
-                                <li><strong>Application tracking:</strong> Seekers see the status of every application</li>
-                                <li><strong>Messaging:</strong> Recruiters and seekers can talk inside the platform</li>
-                                <li><strong>Kanban pipeline:</strong> Recruiters drag and drop applicants through hiring stages</li>
-                                <li><strong>Posting stats:</strong> A per-job dashboard of applicant activity for recruiters</li>
-                            </ul>
-                            <div class="modal-links"></div>
-                        </div>
-                    </article>
-
-                    <article class="project-card">
-                        <div class="project-top project-top-icon" aria-hidden="true"><i class="fa-solid fa-magnifying-glass"></i></div>
-                        <div class="project-body">
-                            <div class="project-header">
-                                <h3 class="project-title"><button type="button" class="project-open" aria-haspopup="dialog">Find George: Scaled Image Search</button></h3>
-                                <i class="fa-solid fa-arrow-up-right-from-square project-arrow" aria-hidden="true"></i>
-                            </div>
-                            <p class="project-desc">Finds one face, scaled up to 5x, in a 64x64 crowd image while checking only 110 of 4,096 pixels.</p>
-                            <div class="project-tags"><span class="tag">C</span><span class="tag">RISC-V Assembly</span></div>
-                        </div>
-
-                        <div class="project-details" hidden>
-                            
-                            <div class="project-tags"><span class="tag">C</span><span class="tag">RISC-V Assembly</span></div>
-                            <p class="modal-dates">Sep 2026 - Oct 2026</p>
-                            <p>Wrote C and hand-optimized RISC-V assembly to find a target face, enlarged up to 5x, hidden in a 64x64 crowd image, while touching as few pixels as possible.</p>
-                            <p class="modal-subhead">Key features</p>
-                            <ul>
-                                <li><strong>Sparse scanning:</strong> Checks every 6th row and 7th column, narrower than the smallest face, so only 110 of 4,096 pixels (97% fewer) are read</li>
-                                <li><strong>Key-pixel matching:</strong> Replaced a 144-pixel template with 8 key-pixel checks, using 86% less storage</li>
-                                <li><strong>Early exits:</strong> Skips faces that have already been ruled out</li>
-                            </ul>
-                            <div class="modal-links"></div>
-                        </div>
-                    </article>
-
-                    <article class="project-card">
-                        <div class="project-top"><img class="project-image" src="assets/pipokemon.png" alt="Raspberry Pi setup running Pokémon Emerald in an emulator" loading="lazy"></div>
-                        <div class="project-body">
-                            <div class="project-header">
-                                <h3 class="project-title"><button type="button" class="project-open" aria-haspopup="dialog">Pokémon Shiny Hunting Bot</button></h3>
-                                <i class="fa-solid fa-arrow-up-right-from-square project-arrow" aria-hidden="true"></i>
-                            </div>
-                            <p class="project-desc">A Raspberry Pi bot that plays Pokémon Emerald and alerts me when a 1-in-8,192 shiny appears.</p>
-                            <div class="project-tags"><span class="tag">C++</span><span class="tag">Raspberry Pi</span><span class="tag">Linux</span><span class="tag">GPIO</span></div>
-                        </div>
-
-                        <div class="project-details" hidden>
-                            <img class="modal-image" src="assets/pipokemon.png" alt="Raspberry Pi setup running Pokémon Emerald in an emulator" loading="lazy">
-                            <div class="project-tags"><span class="tag">C++</span><span class="tag">Raspberry Pi</span><span class="tag">Linux</span><span class="tag">GPIO</span></div>
-                            <p class="modal-dates">Apr 2025 - May 2025</p>
-                            <p>An automated shiny hunter for Pokémon Emerald. A C++ program on a Raspberry Pi controls the mGBA emulator with simulated key input and watches the screen for rare shiny encounters.</p>
-                            <p class="modal-subhead">Key features</p>
-                            <ul>
-                                <li><strong>Automation:</strong> Simulated key input runs 100 to 200 encounters per hour</li>
-                                <li><strong>Detection:</strong> Flags 1-in-8,192 shiny encounters by checking pixel colors at fixed sprite positions plus the shiny star pattern</li>
-                                <li><strong>Alerts:</strong> GPIO-driven LEDs on a breadboard light up, and a notification goes to my phone</li>
-                            </ul>
-                            <div class="modal-links"></div>
-                        </div>
-                    </article>
-
-                    <article class="project-card">
-                        <div class="project-top"><img class="project-image" src="assets/flight-delay-analysis-demo.png" alt="Flight delay analysis banner" loading="lazy"></div>
-                        <div class="project-body">
-                            <div class="project-header">
-                                <h3 class="project-title"><button type="button" class="project-open" aria-haspopup="dialog">Flight Delay Data Pipeline</button></h3>
-                                <i class="fa-solid fa-arrow-up-right-from-square project-arrow" aria-hidden="true"></i>
-                            </div>
-                            <p class="project-desc">Joined 96K delayed Delta flights with aircraft age and weather data to find what actually drives delays.</p>
-                            <div class="project-tags"><span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">BeautifulSoup4</span><span class="tag">REST APIs</span></div>
-                        </div>
-
-                        <div class="project-details" hidden>
-                            <img class="modal-image" src="assets/flight-delay-analysis-demo.png" alt="Flight delay analysis banner" loading="lazy">
-                            <div class="project-tags"><span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">BeautifulSoup4</span><span class="tag">REST APIs</span></div>
-                            <p class="modal-dates">Feb 2025 - May 2025</p>
-                            <p>A data pipeline that combines Bureau of Transportation Statistics flight records with scraped aircraft data and historical weather to study Delta delays out of ATL.</p>
-                            <p class="modal-subhead">Key features</p>
-                            <ul>
-                                <li><strong>Cleaning:</strong> Turned 673K Delta ATL departure records into 96K delayed flights, rebuilding totals from 5 delay-cause fields</li>
-                                <li><strong>Scraping:</strong> Pulled build years for 1,100 aircraft from FlightAware with BeautifulSoup4 (1,049 matched)</li>
-                                <li><strong>Weather join:</strong> Merged 16K hourly Open-Meteo weather records</li>
-                                <li><strong>Findings:</strong> Aircraft age barely predicts weather delays (r = 0.004), while weather-attributed delays ran 40% (21 min) longer</li>
-                            </ul>
-                            <div class="modal-links"><a class="modal-btn" href="https://github.com/vaggala/delta-flight-delay-analysis" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a></div>
-                        </div>
-                    </article>
-
-                    <article class="project-card">
-                        <div class="project-top"><img class="project-image" src="assets/pt_cu_structure_comparison.png" alt="Pt(111) and Cu(111) slabs with CO at atop and FCC hollow sites" loading="lazy"></div>
-                        <div class="project-body">
-                            <div class="project-header">
-                                <h3 class="project-title"><button type="button" class="project-open" aria-haspopup="dialog">DFT Simulation of CO Adsorption on Pt(111) and Cu(111)</button></h3>
-                                <i class="fa-solid fa-arrow-up-right-from-square project-arrow" aria-hidden="true"></i>
-                            </div>
-                            <p class="project-desc">Reproduced where CO prefers to bind on Pt(111) and Cu(111) using density functional theory on an HPC cluster.</p>
-                            <div class="project-tags"><span class="tag">Python</span><span class="tag">SPARC</span><span class="tag">Atomic Simulation Environment</span><span class="tag tag-more">+2</span></div>
-                        </div>
-
-                        <div class="project-details" hidden>
-                            <img class="modal-image" src="assets/pt_cu_structure_comparison.png" alt="Pt(111) and Cu(111) slabs with CO at atop and FCC hollow sites" loading="lazy">
-                            <div class="project-tags"><span class="tag">Python</span><span class="tag">SPARC</span><span class="tag">Atomic Simulation Environment</span><span class="tag">Bash</span><span class="tag">HPC</span></div>
-                            
-                            <p>Reproduced the CO adsorption site preference on Pt(111) and Cu(111) using density functional theory, comparing atop and FCC hollow binding energies on a high performance computing cluster.</p>
-                            <p class="modal-subhead">Key features</p>
-                            <ul>
-                                <li><strong>Simulations:</strong> Built and ran DFT calculations with SPARC and the Atomic Simulation Environment</li>
-                                <li><strong>Comparison:</strong> Computed atop vs. FCC hollow binding energies for both metals</li>
-                                <li><strong>Result:</strong> Found the FCC hollow site more stable for both surfaces</li>
-                            </ul>
-                            <div class="modal-links"><a class="modal-btn" href="https://github.com/vaggala/dft-co-adsorption-pt-cu-surfaces" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a></div>
-                        </div>
-                    </article>
-
-                    <article class="project-card">
-                        <div class="project-top"><img class="project-image" src="assets/iosClubsp26.jpg" alt="VibeRank app screens: profile, voting, and leaderboard" loading="lazy"></div>
-                        <div class="project-body">
-                            <div class="project-header">
-                                <h3 class="project-title"><button type="button" class="project-open" aria-haspopup="dialog">VibeRank</button></h3>
-                                <i class="fa-solid fa-arrow-up-right-from-square project-arrow" aria-hidden="true"></i>
-                            </div>
-                            <p class="project-desc">A real-time, gamified social app where users vote on each other&#x27;s vibe and compete on a live leaderboard.</p>
-                            <div class="project-tags"><span class="tag">Swift</span><span class="tag">SwiftUI</span><span class="tag">Firebase</span><span class="tag tag-more">+2</span></div>
-                        </div>
-
-                        <div class="project-details" hidden>
-                            <img class="modal-image" src="assets/iosClubsp26.jpg" alt="VibeRank app screens: profile, voting, and leaderboard" loading="lazy">
-                            <div class="project-tags"><span class="tag">Swift</span><span class="tag">SwiftUI</span><span class="tag">Firebase</span><span class="tag">Cloud Firestore</span><span class="tag">MVVM</span></div>
-                            
-                            <p>VibeRank is a real-time, gamified social media app where users vote on each other&#x27;s “vibe” and compete on a live leaderboard. It taught me a lot about wiring a backend into Swift and pushed my UI skills.</p>
-                            <p class="modal-subhead">Key features</p>
-                            <ul>
-                                <li><strong>Voting:</strong> Users rate each other&#x27;s vibe</li>
-                                <li><strong>Live leaderboard:</strong> Rankings update in real time with Firestore</li>
-                                <li><strong>Profiles:</strong> Each user has a profile with their stats</li>
-                            </ul>
-                            <div class="modal-links"><a class="modal-btn" href="https://github.com/vaggala/VibeRank" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a></div>
-                        </div>
-                    </article>
-
-                    <article class="project-card">
-                        <div class="project-top"><img class="project-image" src="assets/movie-rev-demo.png" alt="Movie revenue predictor preview" loading="lazy"></div>
-                        <div class="project-body">
-                            <div class="project-header">
-                                <h3 class="project-title"><button type="button" class="project-open" aria-haspopup="dialog">Movie Revenue Predictor</button></h3>
-                                <i class="fa-solid fa-arrow-up-right-from-square project-arrow" aria-hidden="true"></i>
-                            </div>
-                            <p class="project-desc">An end-to-end ML pipeline that predicts box office revenue from movie metadata and plot summaries.</p>
-                            <div class="project-tags"><span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">PyTorch</span><span class="tag">Machine Learning</span></div>
-                        </div>
-
-                        <div class="project-details" hidden>
-                            <img class="modal-image" src="assets/movie-rev-demo.png" alt="Movie revenue predictor preview" loading="lazy">
-                            <div class="project-tags"><span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">PyTorch</span><span class="tag">Machine Learning</span></div>
-                            
-                            <p>An end-to-end machine learning pipeline that predicts movie revenue from structured features plus text embeddings of plot summaries.</p>
-                            <p class="modal-subhead">Key features</p>
-                            <ul>
-                                <li><strong>Features:</strong> Combined structured metadata with plot-summary text embeddings</li>
-                                <li><strong>Model:</strong> Trained a Random Forest regressor</li>
-                                <li><strong>Evaluation:</strong> Used RMSE, MAE, and feature importance to measure performance and diagnose model behavior</li>
-                            </ul>
-                            <div class="modal-links"><a class="modal-btn" href="https://github.com/vaggala/movie-revenue-predictor" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a></div>
-                        </div>
-                    </article>
-
-                    <article class="project-card">
-                        <div class="project-top"><img class="project-image" src="assets/journal-ios-demo.png" alt="iOS journal app preview" loading="lazy"></div>
-                        <div class="project-body">
-                            <div class="project-header">
-                                <h3 class="project-title"><button type="button" class="project-open" aria-haspopup="dialog">iOS Journal &amp; Mood Tracking App</button></h3>
-                                <i class="fa-solid fa-arrow-up-right-from-square project-arrow" aria-hidden="true"></i>
-                            </div>
-                            <p class="project-desc">A SwiftUI journaling and mood tracking app with secure login and per-user storage.</p>
-                            <div class="project-tags"><span class="tag">Swift</span><span class="tag">SwiftUI</span><span class="tag">Firebase Auth</span><span class="tag tag-more">+2</span></div>
-                        </div>
-
-                        <div class="project-details" hidden>
-                            <img class="modal-image" src="assets/journal-ios-demo.png" alt="iOS journal app preview" loading="lazy">
-                            <div class="project-tags"><span class="tag">Swift</span><span class="tag">SwiftUI</span><span class="tag">Firebase Auth</span><span class="tag">Cloud Firestore</span><span class="tag">MVVM</span></div>
-                            
-                            <p>A SwiftUI app for journaling and tracking your mood, built with MVVM.</p>
-                            <p class="modal-subhead">Key features</p>
-                            <ul>
-                                <li><strong>Journaling:</strong> Write and save entries</li>
-                                <li><strong>Mood tracking:</strong> Log how you feel over time</li>
-                                <li><strong>Accounts:</strong> Firebase Authentication for secure login</li>
-                                <li><strong>Storage:</strong> Firestore keeps each user&#x27;s data private and persistent</li>
-                            </ul>
-                            <div class="modal-links"></div>
-                        </div>
-                    </article>
-
-                    <article class="project-card">
-                        <div class="project-top"><img class="project-image" src="assets/moviesstorelogo.png" alt="GT Movies Store logo" loading="lazy"></div>
-                        <div class="project-body">
-                            <div class="project-header">
-                                <h3 class="project-title"><button type="button" class="project-open" aria-haspopup="dialog">Movie Store</button></h3>
-                                <i class="fa-solid fa-arrow-up-right-from-square project-arrow" aria-hidden="true"></i>
-                            </div>
-                            <p class="project-desc">A full-stack movie rental and purchase site built feature by feature from user stories.</p>
-                            <div class="project-tags"><span class="tag">Python</span><span class="tag">Django</span><span class="tag">JavaScript</span><span class="tag">SQLite</span></div>
-                        </div>
-
-                        <div class="project-details" hidden>
-                            <img class="modal-image" src="assets/moviesstorelogo.png" alt="GT Movies Store logo" loading="lazy">
-                            <div class="project-tags"><span class="tag">Python</span><span class="tag">Django</span><span class="tag">JavaScript</span><span class="tag">SQLite</span></div>
-                            
-                            <p>GT Movies Store is a full-stack web app that mimics an online movie renting and purchasing site, built iteratively around strict user stories.</p>
-                            <p class="modal-subhead">Key features</p>
-                            <ul>
-                                <li><strong>Browse:</strong> A home screen of movies with posters, titles, and descriptions</li>
-                                <li><strong>Movie details:</strong> Synopsis, rating, genre, and rent or buy options</li>
-                                <li><strong>Search and filter:</strong> Find movies by title or genre</li>
-                                <li><strong>Cart and checkout:</strong> Add movies to a cart with a running total, then see an order summary</li>
-                            </ul>
-                            <div class="modal-links"><a class="modal-btn" href="https://github.com/vaggala/moviesstore" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a><a class="modal-btn" href="https://youtu.be/jbJi9Y0ytpU" target="_blank" rel="noopener"><i class="fa-solid fa-circle-play"></i> Demo</a></div>
-                        </div>
-                    </article>
-
-                    <article class="project-card">
-                        <div class="project-top"><img class="project-image" src="assets/website_project_pic.png" alt="Screenshot of this website" loading="lazy"></div>
-                        <div class="project-body">
-                            <div class="project-header">
-                                <h3 class="project-title"><button type="button" class="project-open" aria-haspopup="dialog">Personal Portfolio</button></h3>
-                                <i class="fa-solid fa-arrow-up-right-from-square project-arrow" aria-hidden="true"></i>
-                            </div>
-                            <p class="project-desc">This website! Built by hand with plain HTML, CSS, and JavaScript.</p>
-                            <div class="project-tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">Vercel</span></div>
-                        </div>
-
-                        <div class="project-details" hidden>
-                            <img class="modal-image" src="assets/website_project_pic.png" alt="Screenshot of this website" loading="lazy">
-                            <div class="project-tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">Vercel</span></div>
-                            
-                            <p>The site you&#x27;re on right now, built without a framework and deployed on Vercel.</p>
-                            <p class="modal-subhead">Key features</p>
-                            <ul>
-                                <li><strong>Hand-built:</strong> Plain HTML, CSS, and JavaScript</li>
-                                <li><strong>Project views:</strong> Click any project for a focused view</li>
-                                <li><strong>Deployment:</strong> Hosted on Vercel at vasanthaggala.com</li>
-                            </ul>
-                            <div class="modal-links"><a class="modal-btn" href="https://github.com/vaggala/vasanthWebsite" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a><a class="modal-btn" href="https://vasanthaggala.com" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live site</a></div>
-                        </div>
-                    </article>
-                </div>
+            <div class="links">
+                <a class="primary" href="resume.html"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Résumé</a>
+                <a href="https://github.com/vaggala" target="_blank" rel="noopener"><i class="fa-brands fa-github" aria-hidden="true"></i> GitHub</a>
+                <a href="https://linkedin.com/in/vasanth-aggala" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin" aria-hidden="true"></i> LinkedIn</a>
+                <a href="mailto:vasanthaggala@gatech.edu"><i class="fa-solid fa-envelope" aria-hidden="true"></i> Email</a>
             </div>
         </section>
 
-    <dialog id="project-modal" class="project-modal" aria-labelledby="project-modal-title">
-        <div class="modal-bar">
-            <span class="modal-dots" aria-hidden="true"><span></span><span></span><span></span></span>
-            <h3 id="project-modal-title" class="modal-title"></h3>
-            <button type="button" class="modal-close" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
-        </div>
-        <div class="modal-body"></div>
-    </dialog>
+        <section id="experience" class="section">
+            <h2 class="section-title">Experience</h2>
+
+            <article class="job">
+                <img class="logo" src="assets/fiservLogo.jpeg" alt="Fiserv logo">
+                <div>
+                    <div class="row">
+                        <h3>Software Engineering Intern</h3>
+                        <span class="date">Jun – Aug 2026</span>
+                    </div>
+                    <p class="sub">Fiserv · Global eCommerce · Alpharetta, GA</p>
+                    <ul class="bullets">
+                        <li>Engineered an AI assistant (Java, Spring Boot, TypeScript) letting 300+ devs and PMs query internal APIs in plain English</li>
+                        <li>Architected a RAG pipeline routing queries to docs, code search, or live DB data, cutting LLM token costs by 70%</li>
+                        <li>Configured Azure API Management keys for 4 roles (devs, PMs, solutions engineers, testers), tailoring replies to each role</li>
+                    </ul>
+                </div>
+            </article>
+
+            <article class="job">
+                <img class="logo" src="assets/vipLogo.webp" alt="Georgia Tech VIP logo">
+                <div>
+                    <div class="row">
+                        <h3>Undergraduate Research Assistant</h3>
+                        <span class="date">Jan – May 2026</span>
+                    </div>
+                    <p class="sub">Medford Group, Georgia Tech · Computational Research · Atlanta, GA</p>
+                    <ul class="bullets">
+                        <li>Created density functional theory (DFT) workflows with Python, Bash, and SPARC, cutting simulation setup time by 20%</li>
+                        <li>Automated 500+ DFT simulations with Atomic Simulation Environment on Linux HPC clusters, generating ML features</li>
+                        <li>Benchmarked LDA vs. GGA functionals on Pt(111) and Cu(111), reproducing published CO adsorption site preferences</li>
+                    </ul>
+                </div>
+            </article>
+
+            <article class="job">
+                <img class="logo" src="assets/delta_air_lines_logo.webp" alt="Delta Air Lines logo">
+                <div>
+                    <div class="row">
+                        <h3>Software Engineering Intern</h3>
+                        <span class="date">Aug – Dec 2025</span>
+                    </div>
+                    <p class="sub">Delta Air Lines · Flight Safety · Atlanta, GA</p>
+                    <ul class="bullets">
+                        <li>Trained ML models in Python on 200K+ flight records to flag flight risk anomalies, improving detection accuracy by 23%</li>
+                        <li>Optimized backend SQL/Python ETL pipelines behind Tableau dashboards, cutting query load times by 87% (25 to 3.3 min)</li>
+                        <li>Integrated the FlightRadar24 API with SQL/Python analysis of 15+ KPIs, helping 4 flight ops teams find delay bottlenecks</li>
+                    </ul>
+                </div>
+            </article>
+
+            <article class="job">
+                <img class="logo" src="assets/georgia_institute_of_technology_logo.webp" alt="Georgia Tech logo">
+                <div>
+                    <div class="row">
+                        <h3>Undergraduate Research Assistant</h3>
+                        <span class="date">Mar – Aug 2025</span>
+                    </div>
+                    <p class="sub">Bhamla Lab, Georgia Tech · qByte Subteam · Atlanta, GA</p>
+                    <ul class="bullets">
+                        <li>Wrote embedded software for a qLAMP diagnostic device at 90% lower cost than commercial units ($50 vs. $450+)</li>
+                        <li>Engineered C++ temperature control on ESP32, reducing thermal overshoot by 80% and improving reaction stability</li>
+                        <li>Created Python/React apps baseline-normalizing 300K+ readings/run to report time-to-threshold and peak fluorescence</li>
+                    </ul>
+                </div>
+            </article>
+        </section>
+
+        <section id="school" class="section">
+            <h2 class="section-title">School</h2>
+
+            <article class="job">
+                <img class="logo" src="assets/georgia_institute_of_technology_logo.webp" alt="Georgia Tech logo">
+                <div>
+                    <div class="row">
+                        <h3>Georgia Institute of Technology</h3>
+                        <span class="date">Expected May 2028</span>
+                    </div>
+                    <p class="sub">B.S. Computer Engineering · GPA 3.61 · Zell Miller Scholar (full tuition)</p>
+                </div>
+            </article>
+
+            <dl class="facts">
+                <dt>Concentrations</dt>
+                <dd>Distributed Systems &amp; Software Design · Systems &amp; Architecture</dd>
+
+                <dt>Coursework</dt>
+                <dd>Data Structures &amp; Algorithms · Analysis of Algorithms · Programming Hardware/Software Systems · Digital Design · Machine Learning &amp; AI</dd>
+
+                <dt>Involvement</dt>
+                <dd>iOS Club · RoboJackets · Student Government (Computer Engineering Rep.) · Big Data Big Impact · DS @ GT</dd>
+
+                <dt>Languages</dt>
+                <dd>Python · Java · C/C++ · Swift · Go · SQL · TypeScript · JavaScript · RISC-V Assembly · Bash</dd>
+
+                <dt>Frameworks</dt>
+                <dd>Spring Boot · Django · React · SwiftUI · PyTorch · Pandas · NumPy · OpenCV</dd>
+
+                <dt>Tools</dt>
+                <dd>Git · AWS · Azure · Firebase · Docker · Kubernetes · Linux · Tableau</dd>
+            </dl>
+        </section>
+
+        <section id="projects" class="section">
+            <h2 class="section-title">Projects</h2>
+
+            <article class="project">
+                <div class="row">
+                    <h3>Dressed <span class="badge">GT iOS Club</span></h3>
+                    <span class="date">Oct 2026 – Present</span>
+                </div>
+                <p>An iOS app with 25+ student developers that digitizes your closet with Vision and Core ML and lets you share outfits with friends. I lead the social team, which builds posting, following, and outfit discovery.</p>
+                <ul class="bullets">
+                    <li>Built a recommendation algorithm (content-based + collaborative) on closets, likes, saves, and follows that ranks 500 posts in under 100 ms</li>
+                    <li>Designed an MVVM post-detail view model with cancellable loads and error states, exposing only public data to views</li>
+                </ul>
+                <p class="tags">Swift · SwiftUI · Cloud Firestore · MVVM · Vision / Core ML</p>
+            </article>
+
+            <article class="project">
+                <div class="row">
+                    <h3>Job Application Platform</h3>
+                    <span class="date">Aug 2026 – Present</span>
+                </div>
+                <p>A full-stack Django platform that matches student job seekers with recruiters, deployed on PythonAnywhere and used by 300 students.</p>
+                <ul class="bullets">
+                    <li>One-click apply with tailored notes, application status tracking, and in-platform recruiter–seeker messaging</li>
+                    <li>Drag-and-drop Kanban applicant pipeline and a per-job statistics dashboard for recruiters</li>
+                </ul>
+                <p class="tags">Python · Django · JavaScript · PythonAnywhere</p>
+            </article>
+
+            <article class="project">
+                <div class="row">
+                    <h3>Find George: Scaled Image Search</h3>
+                    <span class="date">Sep – Oct 2026</span>
+                </div>
+                <p>C and hand-optimized RISC-V assembly that finds a target face, enlarged up to 5x, in a 64x64 crowd image while reading as few pixels as possible.</p>
+                <ul class="bullets">
+                    <li>Scans every 6th row and 7th column (narrower than the smallest face), so only 110 of 4,096 pixels are read (97% fewer)</li>
+                    <li>Replaced a 144-pixel template with 8 key-pixel checks (86% less storage) and skips faces already ruled out</li>
+                </ul>
+                <p class="tags">C · RISC-V Assembly</p>
+            </article>
+
+            <article class="project">
+                <div class="row">
+                    <h3>Pokémon Shiny Hunting Bot</h3>
+                    <span class="date">Apr – May 2025</span>
+                </div>
+                <p>A C++ program on a Raspberry Pi that plays Pokémon Emerald in the mGBA emulator and watches the screen for rare shiny encounters.</p>
+                <ul class="bullets">
+                    <li>Simulated key input runs 100–200 encounters per hour, unattended</li>
+                    <li>Flags 1-in-8,192 shinies by checking pixel colors at fixed sprite positions plus the shiny star pattern</li>
+                    <li>Lights GPIO-driven LEDs on a breadboard and sends a phone notification when one appears</li>
+                </ul>
+                <p class="tags">C++ · Raspberry Pi · Linux · GPIO</p>
+            </article>
+
+            <article class="project">
+                <div class="row">
+                    <h3>Flight Delay Data Pipeline</h3>
+                    <span class="date">Feb – May 2025</span>
+                </div>
+                <p>Combines Bureau of Transportation Statistics flight records with scraped aircraft data and historical weather to study what actually drives Delta delays out of ATL.</p>
+                <ul class="bullets">
+                    <li>Cleaned 673K departure records into 96K delayed flights, rebuilding totals from 5 delay-cause fields</li>
+                    <li>Scraped build years for 1,100 aircraft from FlightAware (1,049 matched) and joined 16K hourly Open-Meteo weather records</li>
+                    <li>Found aircraft age barely predicts weather delays (r = 0.004), while weather-attributed delays ran 40% (21 min) longer</li>
+                </ul>
+                <p class="tags">Python · Pandas · BeautifulSoup4 · REST APIs</p>
+                <div class="proj-links">
+                    <a href="https://github.com/vaggala/delta-flight-delay-analysis" target="_blank" rel="noopener"><i class="fa-brands fa-github" aria-hidden="true"></i> Code</a>
+                </div>
+            </article>
+
+            <article class="project">
+                <div class="row">
+                    <h3>VibeRank</h3>
+                    <span class="date">GT iOS Club</span>
+                </div>
+                <p>A real-time, gamified social app where users vote on each other's “vibe” and compete on a live leaderboard.</p>
+                <ul class="bullets">
+                    <li>Live leaderboard and voting backed by Cloud Firestore, with per-user profiles and stats</li>
+                </ul>
+                <p class="tags">Swift · SwiftUI · Firebase · Cloud Firestore · MVVM</p>
+                <div class="proj-links">
+                    <a href="https://github.com/vaggala/VibeRank" target="_blank" rel="noopener"><i class="fa-brands fa-github" aria-hidden="true"></i> Code</a>
+                </div>
+            </article>
+
+            <details class="more">
+                <summary>More projects (5) <i class="fa-solid fa-chevron-down" aria-hidden="true"></i></summary>
+                <ul class="more-list">
+                    <li>
+                        <strong>DFT Simulation of CO Adsorption</strong>
+                        <p>Reproduced CO's preferred binding site on Pt(111) and Cu(111) with density functional theory on an HPC cluster.</p>
+                        <p class="tags">Python · SPARC · Atomic Simulation Environment · Bash · HPC · <a href="https://github.com/vaggala/dft-co-adsorption-pt-cu-surfaces" target="_blank" rel="noopener">Code</a></p>
+                    </li>
+                    <li>
+                        <strong>Movie Revenue Predictor</strong>
+                        <p>An end-to-end ML pipeline predicting box office revenue from movie metadata and plot-summary text embeddings.</p>
+                        <p class="tags">Python · Pandas · PyTorch · Machine Learning · <a href="https://github.com/vaggala/movie-revenue-predictor" target="_blank" rel="noopener">Code</a></p>
+                    </li>
+                    <li>
+                        <strong>iOS Journal &amp; Mood Tracker</strong>
+                        <p>A SwiftUI journaling and mood tracking app with Firebase sign-in and private per-user storage.</p>
+                        <p class="tags">Swift · SwiftUI · Firebase Auth · Cloud Firestore · MVVM</p>
+                    </li>
+                    <li>
+                        <strong>Movie Store</strong>
+                        <p>A full-stack movie rental and purchase site built feature by feature from user stories, with search, cart, and checkout.</p>
+                        <p class="tags">Python · Django · JavaScript · SQLite · <a href="https://github.com/vaggala/moviesstore" target="_blank" rel="noopener">Code</a> · <a href="https://youtu.be/jbJi9Y0ytpU" target="_blank" rel="noopener">Demo</a></p>
+                    </li>
+                    <li>
+                        <strong>This website</strong>
+                        <p>A minimal one-page portfolio in plain HTML and CSS, hosted on Vercel.</p>
+                        <p class="tags">HTML · CSS · JavaScript · <a href="https://github.com/vaggala/vasanthWebsite" target="_blank" rel="noopener">Code</a></p>
+                    </li>
+                </ul>
+            </details>
+        </section>
+
+        <section id="contact" class="section contact">
+            <h2 class="section-title">Contact</h2>
+            <p>I'm looking for Summer 2027 software engineering internships, and I'm always happy to talk about backend systems, data pipelines, or iOS. The fastest way to reach me is email.</p>
+            <a class="email" href="mailto:vasanthaggala@gatech.edu">vasanthaggala@gatech.edu</a>
+            <div class="links">
+                <a href="https://linkedin.com/in/vasanth-aggala" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin" aria-hidden="true"></i> LinkedIn</a>
+                <a href="https://github.com/vaggala" target="_blank" rel="noopener"><i class="fa-brands fa-github" aria-hidden="true"></i> GitHub</a>
+                <a href="resume.html"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Résumé</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="wrap">© 2026 Vasanth Aggala</div>
+    </footer>
 
     <script src="scripts.js"></script>
-    <script src="constellation.js"></script>
 </body>
-
 </html>
